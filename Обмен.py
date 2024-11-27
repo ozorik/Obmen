@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import  messagebox as mb
 
 
-def exchange()
+def exchange():
     code = entry.get()
 
     if code:
@@ -27,7 +27,7 @@ window = Tk()
 window.title("Курсы обмен валют")
 window.geometry("360x180")
 
-label(text="Введите код валюты").pack(padx=10, pady=10)
+Label(text="Введите код валюты").pack(padx=10, pady=10)
 
 entry = Entry()
 entry.pack(padx=10, pady=10)
