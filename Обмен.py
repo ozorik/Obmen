@@ -24,13 +24,14 @@ def exchange():
 
     if target_code and base_code:
         try:
-            #url = f'https://www.coingecko.com/api/btc'
-            response = requests.get(f'https://api.coingecko.com/api/{base_code}')
+
+            response = requests.get(
+                f"https://api.coingecko.com/api/v3/simple/price?ids={base_code}&vs_currencies={target_code}")
             response.raise_for_status()
             data = response.json()
 
-            if target_code in data['rates']:
-                exchange_rate = data['rates'][target_code]
+            if target_code in data[base_code]:
+                exchange_rate = data[base_code][target_code]
                 base = cur[base_code]
                 target = cur[target_code]
                 mb.showinfo("Курс обмена", f"Курс {exchange_rate:.1f} {target} за 1 {base}")
@@ -43,8 +44,8 @@ def exchange():
 
 
 cur = {
-'etc': 'Российский рубль',
-'btc': 'Евро',
+'rub': 'Российский рубль',
+"bitcoin": "Bitcoin",
 'usd': 'Американский доллар'
 }
 
