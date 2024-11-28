@@ -46,7 +46,8 @@ def exchange():
 cur = {
 'rub': 'Российский рубль',
 "bitcoin": "Bitcoin",
-'usd': 'Американский доллар'
+'usd': 'Американский доллар',
+"ethereum": "Ethereum"
 }
 
 
